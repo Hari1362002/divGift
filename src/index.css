@@ -1,0 +1,178 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Inter:wght@300;400;500&family=Dancing+Script:wght@600;700&family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400;1,600&family=Great+Vibes&family=Cinzel:wght@400;600;700&display=swap');
+@import "tailwindcss";
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'Inter', sans-serif;
+  background: #fdf6f9;
+  overflow-x: hidden;
+}
+
+.font-playfair  { font-family: 'Playfair Display', serif; }
+.font-dancing   { font-family: 'Dancing Script', cursive; }
+.font-cormorant { font-family: 'Cormorant Garamond', serif; }
+.font-great-vibes { font-family: 'Great Vibes', cursive; }
+.font-cinzel      { font-family: 'Cinzel', serif; }
+
+/* ── SCROLL PROGRESS ── */
+#scroll-progress {
+  position: fixed;
+  top: 0; left: 0;
+  height: 2px;
+  background: linear-gradient(90deg, #f9a8d4, #c084fc, #a5b4fc);
+  z-index: 9998;
+  transition: width 0.1s linear;
+}
+
+/* ── GLASSMORPHISM ── */
+.glass-soft {
+  background: rgba(255,255,255,0.62);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255,255,255,0.82);
+}
+.glass-pink {
+  background: rgba(255,240,248,0.68);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(249,168,212,0.28);
+}
+
+/* ── TEXT EFFECTS ── */
+.glow-soft {
+  text-shadow: 0 2px 20px rgba(249,168,212,0.4), 0 0 40px rgba(192,132,252,0.15);
+}
+.text-shadow-soft {
+  text-shadow: 0 1px 12px rgba(190,24,93,0.18);
+}
+
+/* ── SHADOWS ── */
+.shadow-soft {
+  box-shadow: 0 8px 40px rgba(0,0,0,0.06), 0 2px 12px rgba(249,168,212,0.1);
+}
+.shadow-portrait {
+  box-shadow:
+    0 32px 80px rgba(0,0,0,0.13),
+    0 8px 32px rgba(249,168,212,0.25),
+    inset 0 1px 0 rgba(255,255,255,0.9);
+}
+
+/* ── PHOTO FRAME ── */
+.photo-frame {
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.08), 0 4px 16px rgba(249,168,212,0.15);
+}
+
+/* ══════════════════════════════════════
+   KEYFRAMES
+══════════════════════════════════════ */
+
+/* Cinematic slow zoom on portrait */
+@keyframes slowZoom {
+  0%   { transform: scale(1.00); }
+  100% { transform: scale(1.08); }
+}
+
+/* Heading shimmer sweep */
+@keyframes shimmerSweep {
+  0%   { background-position: -200% center; }
+  100% { background-position:  200% center; }
+}
+
+/* Portrait glow breathe */
+@keyframes glowBreathe {
+  0%, 100% { opacity: 0.55; transform: scale(1); }
+  50%       { opacity: 0.85; transform: scale(1.06); }
+}
+
+/* Light leak / lens flare pulse */
+@keyframes lightLeak {
+  0%, 100% { opacity: 0.55; transform: scale(1)   translate(0px, 0px); }
+  33%       { opacity: 0.75; transform: scale(1.08) translate(6px, -4px); }
+  66%       { opacity: 0.60; transform: scale(1.04) translate(-4px, 3px); }
+}
+
+/* Secondary light leak drift */
+@keyframes lightLeakB {
+  0%, 100% { opacity: 0.30; transform: scale(1)   translate(0px, 0px); }
+  50%       { opacity: 0.50; transform: scale(1.12) translate(-8px, 6px); }
+}
+
+/* Portrait gentle float */
+@keyframes portraitFloat {
+  0%, 100% { transform: translateY(0px)   rotate(0deg); }
+  40%       { transform: translateY(-7px)  rotate(0.4deg); }
+  70%       { transform: translateY(-4px)  rotate(-0.3deg); }
+}
+
+/* Soft float for elements */
+@keyframes floatSoft {
+  0%, 100% { transform: translateY(0px); }
+  50%       { transform: translateY(-10px); }
+}
+
+/* Rising petals */
+@keyframes floatUp {
+  0%   { transform: translateY(60px) scale(0.8) rotate(0deg);   opacity: 0; }
+  12%  { opacity: 0.7; }
+  88%  { opacity: 0.4; }
+  100% { transform: translateY(-130px) scale(1.1) rotate(25deg); opacity: 0; }
+}
+
+/* Sparkle twinkle */
+@keyframes sparkleFloat {
+  0%, 100% { opacity: 0;   transform: scale(0) rotate(0deg); }
+  50%       { opacity: 0.8; transform: scale(1) rotate(180deg); }
+}
+
+/* Soft box-shadow pulse */
+@keyframes softPulse {
+  0%, 100% { box-shadow: 0 8px 32px rgba(249,168,212,0.18); }
+  50%       { box-shadow: 0 8px 52px rgba(249,168,212,0.42), 0 0 60px rgba(192,132,252,0.12); }
+}
+
+/* Button glow pulse */
+@keyframes btnGlow {
+  0%, 100% { box-shadow: 0 8px 28px rgba(244,114,182,0.28), 0 2px 8px rgba(167,139,250,0.15); }
+  50%       { box-shadow: 0 10px 40px rgba(244,114,182,0.48), 0 4px 20px rgba(167,139,250,0.28); }
+}
+
+/* Gradient drift for headings */
+@keyframes gradientDrift {
+  0%   { background-position: 0% 50%; }
+  50%  { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* Balloon sway */
+@keyframes balloonFloat {
+  0%, 100% { transform: translateY(0)   rotate(-3deg); }
+  50%       { transform: translateY(-18px) rotate(3deg); }
+}
+
+/* Music note bounce */
+@keyframes musicBounce {
+  0%, 100% { transform: scale(1); }
+  50%       { transform: scale(1.15); }
+}
+
+/* ── UTILITY CLASSES ── */
+.animate-slow-zoom      { animation: slowZoom 12s ease-in-out infinite alternate; }
+.animate-shimmer-sweep  { animation: shimmerSweep 4s linear infinite; background-size: 300% auto; }
+.animate-glow-breathe   { animation: glowBreathe 4s ease-in-out infinite; }
+.animate-portrait-float { animation: portraitFloat 6s ease-in-out infinite; }
+.animate-float-soft    { animation: floatSoft 4s ease-in-out infinite; }
+.animate-float-up      { animation: floatUp linear infinite; }
+.animate-sparkle-float { animation: sparkleFloat ease-in-out infinite; }
+.animate-soft-pulse    { animation: softPulse 3s ease-in-out infinite; }
+.animate-btn-glow      { animation: btnGlow 2.5s ease-in-out infinite; }
+.animate-gradient-drift { animation: gradientDrift 8s ease infinite; background-size: 200% 200%; }
+.balloon               { animation: balloonFloat ease-in-out infinite; }
+
+/* ── SCROLLBAR ── */
+::-webkit-scrollbar       { width: 3px; }
+::-webkit-scrollbar-track { background: #fdf6f9; }
+::-webkit-scrollbar-thumb { background: linear-gradient(#f9a8d4, #c084fc); border-radius: 2px; }
